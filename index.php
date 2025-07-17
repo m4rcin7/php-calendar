@@ -27,6 +27,54 @@
         </div>
     </div>
 
+    <div class="calendar-grid" id="calendar"></div>
+
+    <div class="modal" id="eventModal">
+
+        <div class="modal-content">
+
+            <div id="eventSelectorWrapper">
+                <label for="eventSelector">
+                    <strong>Select Event:</strong>
+                </label>
+                <select id="eventSelector">
+                    <option disabled selected>Choose Event...</option>
+                </select>
+            </div>
+
+
+            <form method="POST" id="eventForm">
+                <input type="hidden" name="action" id="formAction" value="add">
+                <input type="hidden" name="event_id" id="eventId" value="add">
+
+                <label for="taskName">Task Title:</label>
+                <input type="text" name="task_name" id="taskName" required>
+
+                <label for="taskDesc">Task Description:</label>
+                <input type="text" name="task_description" id="taskDescription" required>
+
+                <label for="startDate">Start Date:</label>
+                <input type="text" name="start_date" id="startDate" required>
+
+                <label for="endDate">End Date:</label>
+                <input type="text" name="end_date" id="endDate" required>
+
+                <button type="submit">💾 Save</button>
+            </form>
+
+            <form method="POST" onsubmit="return confirm('Are you sure?')">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="event_id" value="deleteEventId">
+                <button type="submit">🗑️ Delete</button>
+            </form>
+
+            <button type="button" class="submit-btn">❌ Cancel</button>
+
+        </div>
+    </div>
+
+    <script src="/calendar.js"></script>
+
 </body>
 
 </html>
