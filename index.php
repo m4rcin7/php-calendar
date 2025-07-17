@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,14 @@
 
     <div class="clock-container">
         <div id="clock"></div>
+    </div>
+
+    <div class="calendar">
+        <div class="nav-btn-container">
+            <button class="nav-btn">⏪</button>
+            <h2 id="mothYear"></h2>
+            <button class="nav-btn">⏩</button>
+        </div>
     </div>
 
 </body>
