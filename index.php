@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Calendar Project" />
     <title>PHP Calendar</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <script src="/calendar.js"></script>
+    <!-- <script src="/calendar.js"></script> -->
 
 </body>
 

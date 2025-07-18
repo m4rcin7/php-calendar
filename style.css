@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+:root {
+  --font-main: "Michroma", sans-serif;
+  --color-bg: #0f0f1b;
+  --color-surface: rgba(255, 255, 255, 0.05);
+  --color-text: #ffffff;
+  --color-muted: #a0a0a0;
+  --color-accent: #00d4ff;
+  --color-accent-hover: #00a3cc;
+  --color-danger: #ff3b3b;
+  --color-danger-hover: #cc2f2f;
+  --color-success: #22ff88;
+  --radius: 16px;
+  --spacing: 1.5rem;
+  --transition: 0.3s ease;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--spacing);
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent);
+}
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#clock {
+  font-size: 1.25rem;
+  color: var(--color-muted);
+}
+
+.calendar {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.nav-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-btn {
+  background: var(--color-accent);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition);
+}
+
+.nav-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+#mothYear {
+  font-size: 1.8rem;
+  color: var(--color-text);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 25, 0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow);
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #555;
+  border-radius: var(--radius);
+  background: #1a1a2e;
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+button,
+.submit-btn {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: black;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition);
+}
+
+button:hover,
+.submit-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+button[type="submit"]:nth-of-type(2) {
+  background-color: var(--color-danger);
+}
+
+button[type="submit"]:nth-of-type(2):hover {
+  background-color: var(--color-danger-hover);
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .modal-content {
+    padding: 1.25rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #mothYear {
+    font-size: 1.25rem;
+  }
+}
