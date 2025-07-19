@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <h1>🗓️ Course Calendar<br> My Calendar Project</h1>
+        <h1>🗓️ Course PHP Calendar<br> My PHP Calendar Project</h1>
     </header>
 
     <div class="clock-container">
