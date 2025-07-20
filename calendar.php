@@ -6,7 +6,7 @@ $successMsg = '';
 $errorMsg = '';
 $eventsFromDB = [];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST['action'] ?? '') === "add") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'add') {
     $task = trim($_POST['task_name'] ?? '');
     $task_desc  = trim($_POST['task_description	'] ?? '');
     $start = $_POST['start_date'] ?? '';
@@ -48,6 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'edit'
         exit();
     } else {
         header("Location: " . $_SERVER["PHP_SELF"] . "?error=2");
+        exit();
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'delete') {
+    $id = $_POST['event_id'] ?? null;
+
+    if ($id) {
+        $stmt = $conn->prepare("DELETE FROM tasks WHERE id =?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        header("Location: " . $_SERVER["PHP_SELF"] . "?sucess=3");
         exit();
     }
 }
