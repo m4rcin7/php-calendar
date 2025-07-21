@@ -25,7 +25,7 @@
     <div class="calendar">
         <div class="nav-btn-container">
             <button class="nav-btn">⏪</button>
-            <h2 id="mothYear"></h2>
+            <h2 id="monthYear"></h2>
             <button class="nav-btn">⏩</button>
         </div>
     </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <!-- <script src="/calendar.js"></script> -->
+    <script src="calendar.js"></script>
 
 </body>
 
