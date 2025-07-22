@@ -11,13 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'add')
     $task_desc  = trim($_POST['task_description	'] ?? '');
     $start = $_POST['start_date'] ?? '';
     $end = $_POST['end_date'] ?? '';
+    $startTime = $_POST['start_time'] ?? '';
+    $endTime = $_POST['end_time'] ?? '';
 
-    if ($task && $task_desc && $start && $end) {
+    if ($task && $task_desc && $start && $end && $startTime && $endTime) {
         $stmt = $conn->prepare(
-            'INSERT INTO tasks (task_name, task_description, start_date, end_date) 
+            'INSERT INTO tasks (task_name, task_description, start_date, end_date, start_time, end_time) 
              VALUES (?, ?, ?, ?, ?, ?)'
         );
-        $stmt->bind_param('ssss', $task, $task_desc, $start, $end);
+        $stmt->bind_param('ssssss', $task, $task_desc, $start, $end, $startTime, $endTime);
         $stmt->execute();
         $stmt->close();
 
@@ -35,12 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'edit'
     $task_desc = trim($_POST["task_description"]);
     $start = $_POST["start_date"] ?? '';
     $end = $_POST["end_date"] ?? '';
+    $startTime = $_POST["start_time"] ?? '';
+    $endTime = $_POST["end_time"] ?? '';
 
-    if ($id && $task && $task_desc && $start && $end) {
+    if ($id && $task && $task_desc && $start && $end && $startTime && $endTime) {
         $stmt = $conn->prepare(
-            "UPDATE tasks SET task_name = ?, task_description = ?,  start_date = ?, end_date = ? WHERE id = ?"
+            "UPDATE tasks SET task_name = ?, task_description = ?,  start_date = ?, end_date = ?, start_time = ?, end_time = ? WHERE id = ?"
         );
-        $stmt->bind_param("ssssi", $task, $task_desc, $start, $end, $id);
+        $stmt->bind_param("ssssssi", $task, $task_desc, $start, $end, $startTime, $endTime, $id);
         $stmt->execute();
         $stmt->close();
 
@@ -92,6 +96,8 @@ if ($result && $result->num_rows > 0) {
                 "date" => $start->format('Y-m-d'),
                 "start" => $row["start_date"],
                 "end" => $row['end_date'],
+                "start_time" => $row["start_time"],
+                "end_time" => $row["end_time"],
             ];
 
             $start->modify("+1 day");

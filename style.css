@@ -174,12 +174,12 @@ header h1 {
   transform: scale(1.02);
 }
 
-.event .course {
+.event .taskName {
   font-weight: bold;
   font-size: 13px;
 }
 
-.event .instructor {
+.event .taskDescription {
   font-size: 12px;
   opacity: 0.85;
 }
@@ -365,5 +365,45 @@ button[type="submit"]:nth-of-type(2):hover {
   .clock-container {
     font-size: 1.4rem;
     padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .calendar {
+    padding: 1rem;
+  }
+
+  .nav-btn-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .day {
+    min-height: 80px;
+    padding: 6px;
+  }
+
+  .date-number {
+    font-size: 0.9rem;
+  }
+
+  .event {
+    font-size: 11px;
+    padding: 4px 6px;
   }
 }
