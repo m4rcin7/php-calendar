@@ -8,7 +8,7 @@ $eventsFromDB = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? '') === 'add') {
     $task = trim($_POST['task_name'] ?? '');
-    $task_desc  = trim($_POST['task_description	'] ?? '');
+    $task_desc  = trim($_POST['task_description'] ?? '');
     $start = $_POST['start_date'] ?? '';
     $end = $_POST['end_date'] ?? '';
     $startTime = $_POST['start_time'] ?? '';
