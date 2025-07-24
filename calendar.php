@@ -90,7 +90,7 @@ if ($result && $result->num_rows > 0) {
         $end = new DateTime($row["end_date"]);
 
         while ($start <= $end) {
-            $eventFromDB[] = [
+            $eventsFromDB[] = [
                 'id' => $row["id"],
                 "title" => "{$row['task_name']} - {$row['task_description']}",
                 "date" => $start->format('Y-m-d'),
